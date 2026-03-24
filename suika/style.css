@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;900&display=swap');
+
+:root {
+  font-family: 'Nunito', sans-serif;
+  --bg-color: #1a181b; 
+  --sidebar-bg: #2d2833; 
+  --text-main: #f8e5ff;
+  --kuromi-pink: #ff66a3;
+  --kuromi-purple: #a67cff;
+  --container-bg: #322838;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at top right, rgba(166, 124, 255, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at bottom left, rgba(255, 102, 163, 0.3) 0%, transparent 40%);
+  overflow: hidden;
+  color: var(--text-main);
+}
+
+#app-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- Kuromi Styled UI Sidebar --- */
+#ui-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 250px;
+  background: var(--sidebar-bg);
+  padding: 35px 25px;
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 2px 5px rgba(255,255,255,0.05);
+  border: 3px solid var(--kuromi-purple);
+  text-align: center;
+}
+
+.sidebar-header h1 {
+  margin: 0;
+  font-size: 34px;
+  color: var(--kuromi-pink);
+  text-shadow: 2px 2px 0px #000;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+  color: var(--kuromi-purple);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.score-board {
+  background: rgba(0,0,0,0.4);
+  padding: 20px 15px;
+  border-radius: 15px;
+  font-size: 18px;
+  color: #ccc;
+  border: 2px solid var(--kuromi-pink);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#score {
+  font-size: 54px;
+  font-weight: 900;
+  color: var(--text-main);
+  display: block;
+  text-shadow: 0 0 15px var(--kuromi-pink);
+  margin-top: 5px;
+}
+
+.next-fruit {
+  background: rgba(0,0,0,0.4);
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 18px;
+  color: #ccc;
+  border: 2px solid var(--kuromi-purple);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#next-fruit-display {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+}
+
+#shake-btn {
+  background: linear-gradient(135deg, var(--kuromi-purple), var(--kuromi-pink));
+  border: none;
+  border-radius: 20px;
+  padding: 18px 20px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 102, 163, 0.4);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+#shake-btn:hover:not(:disabled) {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 102, 163, 0.6);
+}
+
+#shake-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+#shake-btn:disabled {
+  background: #3a3240;
+  color: #776e82;
+  cursor: not-allowed;
+  box-shadow: none;
+  border: 2px solid #2d2633;
+}
+
+/* --- Game Canvas --- */
+#game-container {
+  position: relative;
+  width: 600px;
+  height: 800px;
+  background-color: var(--container-bg);
+  border-radius: 25px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(0,0,0,0.5);
+  border: 5px solid var(--kuromi-pink);
+  overflow: hidden;
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-15px, 0px) rotate(-1deg); }
+  40% { transform: translate(15px, 0px) rotate(1deg); }
+  60% { transform: translate(-15px, 0px) rotate(-1deg); }
+  80% { transform: translate(15px, 0px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake-animation {
+  animation: shake 0.4s ease-in-out;
+}
+
+canvas {
+  display: block;
+}

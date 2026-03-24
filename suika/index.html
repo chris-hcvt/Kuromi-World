@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suika Game - Kuromi Edition</title>
+  </head>
+  <body>
+    <div id="app-wrapper">
+      <!-- Left UI Sidebar -->
+      <div id="ui-sidebar">
+        <div class="sidebar-header">
+          <h1>Suika Game</h1>
+          <p class="subtitle">Kuromi Edition 💀🎀</p>
+        </div>
+        
+        <div class="score-board">
+          Score
+          <span id="score">0</span>
+        </div>
+        
+        <div class="next-fruit">
+          Next Fruit
+          <img id="next-fruit-display" src="" alt="Next" />
+        </div>
+        
+        <button id="shake-btn">Shake Box 🌪️</button>
+      </div>
+
+      <!-- Right Game Canvas -->
+      <div id="game-container">
+        <!-- Matter.js Canvas Injected Here -->
+      </div>
+    </div>
+    
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
