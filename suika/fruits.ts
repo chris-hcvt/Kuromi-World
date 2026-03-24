@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 export interface FruitDefinition {
   level: number;
   name: string;
