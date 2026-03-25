@@ -227,6 +227,17 @@ function arenaSweep() {
   }
 }
 
+function playerHardDrop() {
+  while (!collide(grid, piece)) {
+    piece.pos.y++;
+  }
+  piece.pos.y--;
+  merge(grid, piece);
+  resetPiece();
+  arenaSweep();
+  dropCounter = 0;
+}
+
 function update(time = 0) {
   if (isGameOver) return;
   
@@ -244,11 +255,17 @@ function update(time = 0) {
 
 document.addEventListener('keydown', event => {
   if (isGameOver) return;
+  
+  if ([' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(event.key)) {
+    event.preventDefault(); // Prevent page scrolling
+  }
+
   switch (event.key) {
     case 'ArrowLeft': playerMove(-1); break;
     case 'ArrowRight': playerMove(1); break;
     case 'ArrowDown': playerDrop(); break;
     case 'ArrowUp': playerRotate(); break;
+    case ' ': playerHardDrop(); break;
   }
 });
 
