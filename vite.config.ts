@@ -6,7 +6,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        suika: 'suika/index.html'
+        suika: 'suika/index.html',
+        tetris: 'tetris/index.html'
       }
     }
   }

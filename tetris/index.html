@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuromi Tetris</title>
+  </head>
+  <body>
+    <!-- Back Button -->
+    <a href="../" class="back-btn">⬅ Game Hub</a>
+
+    <div id="app-wrapper">
+      <!-- Left UI Sidebar -->
+      <div id="ui-sidebar">
+        <div class="sidebar-header">
+          <h1>Kuromi Tetris</h1>
+          <p class="subtitle">Classic Edition 💀🎀</p>
+        </div>
+        
+        <div class="score-board">
+          Score
+          <span id="score">0</span>
+        </div>
+        
+        <div class="next-fruit">
+          Next Piece
+          <canvas id="next-piece-canvas" width="120" height="120"></canvas>
+        </div>
+        
+        <div class="controls-hint">
+          <p>⬅ Left | Right ➡</p>
+          <p>⬇ Drop | ⬆ Rotate</p>
+        </div>
+      </div>
+
+      <!-- Right Game Canvas -->
+      <div id="game-container" style="position: relative;">
+        <canvas id="tetris-canvas" width="300" height="600"></canvas>
+        <div id="game-over">
+          <h2>Game Over</h2>
+          <button id="restart-btn">Play Again</button>
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
